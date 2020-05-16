@@ -1,0 +1,40 @@
+{
+    "name": "logger_console_remote",
+    "version": "0.0.4",
+    "description": "Permite generar mensajes en consola asi como generar el envio del mismo mediante solicitudes http",
+    "main": "dist/index.js",
+    "umd:main": "dist/index.umd.js",
+    "module": "dist/index.mjs",
+    "source": "src/index.js",
+    "scripts": {
+        "test": "jest",
+        "build": "microbundle",
+        "prepublish": "npm run build"
+    },
+    "keywords": ["logger_console", "logger", "log", "remote_log"],
+    "author": "Marco Antonio Mata <mantoniomx> (https://github.com/mantoniomx)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mantoniomx/Logger_Console_Remote.git"
+    },
+    "homepage": "https://github.com/mantoniomx/Logger_Console_Remote.git",
+    "devDependencies": {
+        "@babel/preset-env": "^7.9.6",
+        "babel-jest": "^26.0.1",
+        "husky": "^4.2.5",
+        "jest": "^26.0.1",
+        "lint-staged": "^10.2.2",
+        "microbundle": "^0.12.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test"
+        }
+    },
+    "lint-staged": {
+        "*.js": ["prettier --write", "eslint --fix", "git add"],
+        "*.{json,md}": ["prettier --write", "git add"]
+    },
+    "files": ["dist", "package.json", "README.md"]
+}
